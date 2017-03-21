@@ -1,9 +1,9 @@
+import numpy as np
 from keras.models import Sequential, Model
 from keras.layers import Flatten, Dense, Dropout, Reshape, Permute, Activation, \
     Input, merge
 from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D
 from keras.optimizers import SGD
-import numpy as np
 from scipy.misc import imread, imresize, imsave
 
 from convnetskeras.customlayers import convolution2Dgroup, crosschannelnormalization, \
@@ -316,12 +316,9 @@ def preprocess_image_batch(image_paths, img_size=None, crop_size=None, color_mod
         return img_batch
 
 
-
-
-
 if __name__ == "__main__":
-    ### Here is a script to compute the heatmap of the dog synsets.
-    ## We find the synsets corresponding to dogs on ImageNet website
+    # Here is a script to compute the heatmap of the dog synsets.
+    # We find the synsets corresponding to dogs on ImageNet website
     s = "n02084071"
     ids = synset_to_dfs_ids(s)
     # Most of the synsets are not in the subset of the synsets used in ImageNet recognition task.
@@ -331,9 +328,8 @@ if __name__ == "__main__":
 
     # Test pretrained model
     sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
-    model = convnet('alexnet',weights_path="weights/alexnet_weights.h5", heatmap=True)
+    model = convnet('alexnet', weights_path="weights/alexnet_weights.h5", heatmap=True)
     model.compile(optimizer=sgd, loss='mse')
 
-
     out = model.predict(im)
-    heatmap = out[0,ids,:,:].sum(axis=0)
+    heatmap = out[0, ids, :, :].sum(axis=0)

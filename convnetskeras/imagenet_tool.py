@@ -1,8 +1,4 @@
-import numpy as np
-
-from os import listdir
-from os.path import isfile, join, dirname
-
+from os.path import join, dirname
 from scipy.io import loadmat
 
 
