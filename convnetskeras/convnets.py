@@ -6,7 +6,7 @@ from keras.layers.convolutional import Conv2D, MaxPooling2D, ZeroPadding2D
 from keras.optimizers import SGD
 from scipy.misc import imread, imresize, imsave
 
-from convnetskeras.customlayers import Conv2Dgroup, crosschannelnormalization, \
+from convnetskeras.customlayers import convolution2Dgroup, crosschannelnormalization, \
     splittensor, Softmax4D
 from convnetskeras.imagenet_tool import synset_to_id, id_to_synset,synset_to_dfs_ids
 
