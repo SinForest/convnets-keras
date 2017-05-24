@@ -94,45 +94,45 @@ def VGG_16(weights_path=None, heatmap=False):
         model.add(ZeroPadding2D((1,1),input_shape=(3,None,None)))
     else:
         model.add(ZeroPadding2D((1,1),input_shape=(3,224,224)))
-    model.add(Conv2D(64, 3, 3, activation='relu', name='conv1_1'))
+    model.add(Conv2D(64,(3,3), activation='relu', name='conv1_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(64, 3, 3, activation='relu', name='conv1_2'))
+    model.add(Conv2D(64,(3,3), activation='relu', name='conv1_2'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(128, 3, 3, activation='relu', name='conv2_1'))
+    model.add(Conv2D(128,(3,3), activation='relu', name='conv2_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(128, 3, 3, activation='relu', name='conv2_2'))
+    model.add(Conv2D(128,(3,3), activation='relu', name='conv2_2'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(256, 3, 3, activation='relu', name='conv3_1'))
+    model.add(Conv2D(256,(3,3), activation='relu', name='conv3_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(256, 3, 3, activation='relu', name='conv3_2'))
+    model.add(Conv2D(256,(3,3), activation='relu', name='conv3_2'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(256, 3, 3, activation='relu', name='conv3_3'))
+    model.add(Conv2D(256,(3,3), activation='relu', name='conv3_3'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv4_1'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv4_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv4_2'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv4_2'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv4_3'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv4_3'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv5_1'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv5_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv5_2'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv5_2'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv5_3'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv5_3'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     if heatmap:
-        model.add(Conv2D(4096,7,7,activation="relu",name="dense_1"))
-        model.add(Conv2D(4096,1,1,activation="relu",name="dense_2"))
-        model.add(Conv2D(1000,1,1,name="dense_3"))
+        model.add(Conv2D(4096,(7,7),activation="relu",name="dense_1"))
+        model.add(Conv2D(4096,(1,1),activation="relu",name="dense_2"))
+        model.add(Conv2D(1000,(1,1),name="dense_3"))
         model.add(Softmax4D(axis=1,name="softmax"))
     else:
         model.add(Flatten(name="flatten"))
@@ -157,51 +157,51 @@ def VGG_19(weights_path=None,heatmap=False):
         model.add(ZeroPadding2D((1,1),input_shape=(3,None,None)))
     else:
         model.add(ZeroPadding2D((1,1),input_shape=(3,224,224)))
-    model.add(Conv2D(64, 3, 3, activation='relu', name='conv1_1'))
+    model.add(Conv2D(64,(3,3), activation='relu', name='conv1_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(64, 3, 3, activation='relu', name='conv1_2'))
+    model.add(Conv2D(64,(3,3), activation='relu', name='conv1_2'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(128, 3, 3, activation='relu', name='conv2_1'))
+    model.add(Conv2D(128,(3,3), activation='relu', name='conv2_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(128, 3, 3, activation='relu', name='conv2_2'))
+    model.add(Conv2D(128,(3,3), activation='relu', name='conv2_2'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(256, 3, 3, activation='relu', name='conv3_1'))
+    model.add(Conv2D(256,(3,3), activation='relu', name='conv3_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(256, 3, 3, activation='relu', name='conv3_2'))
+    model.add(Conv2D(256,(3,3), activation='relu', name='conv3_2'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(256, 3, 3, activation='relu', name='conv3_3'))
+    model.add(Conv2D(256,(3,3), activation='relu', name='conv3_3'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(256, 3, 3, activation='relu', name='conv3_4'))
+    model.add(Conv2D(256,(3,3), activation='relu', name='conv3_4'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv4_1'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv4_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv4_2'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv4_2'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv4_3'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv4_3'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv4_4'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv4_4'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv5_1'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv5_1'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv5_2'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv5_2'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv5_3'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv5_3'))
     model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(512, 3, 3, activation='relu', name='conv5_4'))
+    model.add(Conv2D(512,(3,3), activation='relu', name='conv5_4'))
     model.add(MaxPooling2D((2,2), strides=(2,2)))
 
     if heatmap:
-        model.add(Conv2D(4096,7,7,activation="relu",name="dense_1"))
-        model.add(Conv2D(4096,1,1,activation="relu",name="dense_2"))
-        model.add(Conv2D(1000,1,1,name="dense_3"))
+        model.add(Conv2D(4096,(7,7),activation="relu",name="dense_1"))
+        model.add(Conv2D(4096,(1,1),activation="relu",name="dense_2"))
+        model.add(Conv2D(1000,(1,1),name="dense_3"))
         model.add(Softmax4D(axis=1,name="softmax"))
     else:
         model.add(Flatten())
@@ -225,40 +225,40 @@ def AlexNet(weights_path=None, heatmap=False):
     else:
         inputs = Input(shape=(3,227,227))
 
-    conv_1 = Conv2D(96, 11, 11,subsample=(4,4),activation='relu',
+    conv_1 = Conv2D(96,(11,11),subsample=(4,4),activation='relu',
                            name='conv_1')(inputs)
 
     conv_2 = MaxPooling2D((3, 3), strides=(2,2))(conv_1)
     conv_2 = crosschannelnormalization(name="convpool_1")(conv_2)
     conv_2 = ZeroPadding2D((2,2))(conv_2)
     conv_2 = merge([
-        Conv2D(128,5,5,activation="relu",name='conv_2_'+str(i+1))(
+        Conv2D(128,(5,5),activation="relu",name='conv_2_'+str(i+1))(
             splittensor(ratio_split=2,id_split=i)(conv_2)
         ) for i in range(2)], mode='concat',concat_axis=1,name="conv_2")
 
     conv_3 = MaxPooling2D((3, 3), strides=(2, 2))(conv_2)
     conv_3 = crosschannelnormalization()(conv_3)
     conv_3 = ZeroPadding2D((1,1))(conv_3)
-    conv_3 = Conv2D(384,3,3,activation='relu',name='conv_3')(conv_3)
+    conv_3 = Conv2D(384,(3,3),activation='relu',name='conv_3')(conv_3)
 
     conv_4 = ZeroPadding2D((1,1))(conv_3)
     conv_4 = merge([
-        Conv2D(192,3,3,activation="relu",name='conv_4_'+str(i+1))(
+        Conv2D(192,(3,3),activation="relu",name='conv_4_'+str(i+1))(
             splittensor(ratio_split=2,id_split=i)(conv_4)
         ) for i in range(2)], mode='concat',concat_axis=1,name="conv_4")
 
     conv_5 = ZeroPadding2D((1,1))(conv_4)
     conv_5 = merge([
-        Conv2D(128,3,3,activation="relu",name='conv_5_'+str(i+1))(
+        Conv2D(128,(3,3),activation="relu",name='conv_5_'+str(i+1))(
             splittensor(ratio_split=2,id_split=i)(conv_5)
         ) for i in range(2)], mode='concat',concat_axis=1,name="conv_5")
 
     dense_1 = MaxPooling2D((3, 3), strides=(2,2),name="convpool_5")(conv_5)
 
     if heatmap:
-        dense_1 = Conv2D(4096,6,6,activation="relu",name="dense_1")(dense_1)
-        dense_2 = Conv2D(4096,1,1,activation="relu",name="dense_2")(dense_1)
-        dense_3 = Conv2D(1000, 1,1,name="dense_3")(dense_2)
+        dense_1 = Conv2D(4096,(6,6),activation="relu",name="dense_1")(dense_1)
+        dense_2 = Conv2D(4096,(1,1),activation="relu",name="dense_2")(dense_1)
+        dense_3 = Conv2D(1000,(1,1),name="dense_3")(dense_2)
         prediction = Softmax4D(axis=1,name="softmax")(dense_3)
     else:
         dense_1 = Flatten(name="flatten")(dense_1)
